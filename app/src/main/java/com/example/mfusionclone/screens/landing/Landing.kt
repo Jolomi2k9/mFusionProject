@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.mfusionclone.R
 import com.example.mfusionclone.databinding.FragmentLandingBinding
 
 
-class landing_fragment : Fragment() {
+class Landing : Fragment() {
 
 
     override fun onCreateView(
@@ -21,8 +22,11 @@ class landing_fragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentLandingBinding>(
             inflater,
-            R.layout.fragment_landing, container, false
-        )
+            R.layout.fragment_landing, container, false)
+
+        binding.menu.setOnClickListener{
+                view : View ->
+            view.findNavController().navigate(R.id.action_landing_fragment_to_menu)}
         return binding.root
     }
 

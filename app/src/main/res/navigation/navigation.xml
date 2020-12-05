@@ -7,14 +7,22 @@
 
     <fragment
         android:id="@+id/landing_fragment"
-        android:name="com.example.mfusionclone.screens.landing.landing_fragment"
+        android:name="com.example.mfusionclone.screens.landing.Landing"
         android:label="landing_fragment"
-        tools:layout="@layout/fragment_landing" />
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landing_fragment_to_menu"
+            app:destination="@id/menu" />
+    </fragment>
     <fragment
         android:id="@+id/menu"
-        android:name="com.example.mfusionclone.screens.menu.menu"
+        android:name="com.example.mfusionclone.screens.menu.Menu"
         android:label="menu"
-        tools:layout="@layout/fragment_menu"/>
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menu_to_cart"
+            app:destination="@id/cart" />
+    </fragment>
     <fragment
         android:id="@+id/cart"
         android:name="com.example.mfusionclone.screens.cart.Cart"

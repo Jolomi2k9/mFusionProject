@@ -11,7 +11,7 @@ import com.example.mfusionclone.databinding.FragmentLandingBinding
 import com.example.mfusionclone.databinding.FragmentMenuBinding
 
 
-class menu : Fragment() {
+class Menu : Fragment() {
 
 
     override fun onCreateView(
