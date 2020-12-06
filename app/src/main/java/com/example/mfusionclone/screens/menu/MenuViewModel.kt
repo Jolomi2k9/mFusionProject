@@ -22,15 +22,20 @@ class MenuViewModel : ViewModel() {
      * The various menu items prices, stored in as mutable live data.
      * This item can only be accessed by members of this class.
      */
-    private val _menuOrderPrice = MutableLiveData<MutableList<Int>>()
+    private val _menuOrderPrice = MutableLiveData<MutableList<Double>>()
     /**
      * Create a version of menu order price that can be read, but not modified
      * from external members.
      */
-    val menuOrderPrice: LiveData<MutableList<Int>>
+    val menuOrderPrice: LiveData<MutableList<Double>>
         get() = _menuOrderPrice
 
 
+    /**Variable to hold the order total*/
+    private var _menuOrderTotal = MutableLiveData<MutableList<Double>>()
+
+    val menuOrderTotal: LiveData<MutableList<Double>>
+        get() = _menuOrderTotal
 
     /**
      * initializing the menu item lists
@@ -73,13 +78,37 @@ class MenuViewModel : ViewModel() {
     }
 
 
+
     init {
 
-        //_menuOrderItems.value = ""
-        //_menuOrderPrice.value = 0
+       /* _menuOrderItems.value?.add("")
+
+        _menuOrderPrice.value?.add(0.0)*/
     }
 
-    private fun addToOrder(num: Int){
+     fun addToOrder(num: Int){
+        _menuOrderItems.value?.add(menuItemList[num])
+        _menuOrderPrice.value?.add(menuListPrice[num])
 
+         orderTotal()
     }
+
+    fun removeOrderItem(num: Int){
+        _menuOrderItems.value?.removeAt(num)
+        _menuOrderPrice.value?.removeAt(num)
+
+        orderTotal()
+    }
+
+    fun orderTotal(){
+        /** */
+        var prices = mutableListOf(_menuOrderPrice)
+
+        /**Loops through the prices and adds each to menuOrderTotal*/
+        for (i in prices){
+            _menuOrderTotal += i
+        }
+    }
+
+
 }

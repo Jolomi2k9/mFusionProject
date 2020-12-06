@@ -4,37 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.TitleFragment">
 
+    <data>
+
+        <variable
+            name = "menuViewModel"
+            type="com.example.mfusionclone.screens.menu.MenuViewModel" />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menuFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/menu2"
             android:layout_width="191dp"
             android:layout_height="58dp"
             android:layout_marginTop="47dp"
             android:layout_marginBottom="70dp"
             android:text="Menu 2: 6.70"
-            app:layout_constraintBottom_toTopOf="@+id/button10"
+            android:onClick="@{() -> menuViewModel.addToOrder(1)}"
+
+            app:layout_constraintBottom_toTopOf="@+id/menu3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button8" />
+            app:layout_constraintTop_toBottomOf="@+id/menu1" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/menu1"
             android:layout_width="191dp"
             android:layout_height="58dp"
             android:layout_marginTop="103dp"
             android:layout_marginBottom="47dp"
             android:text="Menu 1: 4.20"
-            app:layout_constraintBottom_toTopOf="@+id/button7"
+            android:onClick="@{() -> menuViewModel.addToOrder(0)}"
+
+            app:layout_constraintBottom_toTopOf="@+id/menu2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/submitCart"
             android:layout_width="90dp"
             android:layout_height="52dp"
             android:layout_marginTop="14dp"
@@ -43,31 +55,35 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/menu4" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/menu3"
             android:layout_width="191dp"
             android:layout_height="58dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="53dp"
             android:text="Menu 3: 7.50"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            android:onClick="@{() -> menuViewModel.addToOrder(2)}"
+
+            app:layout_constraintBottom_toTopOf="@+id/menu4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
+            app:layout_constraintTop_toBottomOf="@+id/menu2" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/menu4"
             android:layout_width="191dp"
             android:layout_height="58dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="61dp"
             android:text="Menu 4: 3.50"
-            app:layout_constraintBottom_toTopOf="@+id/button9"
+            android:onClick="@{() -> menuViewModel.addToOrder(3)}"
+
+            app:layout_constraintBottom_toTopOf="@+id/submitCart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button10" />
+            app:layout_constraintTop_toBottomOf="@+id/menu3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
