@@ -81,9 +81,11 @@ class MenuViewModel : ViewModel() {
 
     init {
 
-       /* _menuOrderItems.value?.add("")
+       /* _menuOrderTotal.value?.add(0.0)
 
-        _menuOrderPrice.value?.add(0.0)*/
+        _menuOrderItems.value?.add("")
+
+        _menuOrderPrice.value?.add(0.0) */
     }
 
      fun addToOrder(num: Int){
@@ -105,9 +107,9 @@ class MenuViewModel : ViewModel() {
         var prices = mutableListOf(_menuOrderPrice)
 
         /**Loops through the prices and adds each to menuOrderTotal*/
-        for (i in prices){
+        /*for (i in prices){
             _menuOrderTotal += i
-        }
+        }*/
     }
 
 
