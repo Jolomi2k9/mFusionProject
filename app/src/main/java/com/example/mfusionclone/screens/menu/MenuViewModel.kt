@@ -22,25 +22,30 @@ class MenuViewModel : ViewModel() {
      * The various menu items prices, stored in as mutable live data.
      * This item can only be accessed by members of this class.
      */
-    private val _menuOrderPrice = MutableLiveData<MutableList<Double>>()
+    //private val _menuOrderPrice = MutableLiveData<MutableList<Double>>()
     /**
      * Create a version of menu order price that can be read, but not modified
      * from external members.
      */
-    val menuOrderPrice: LiveData<MutableList<Double>>
-        get() = _menuOrderPrice
+    //val menuOrderPrice: LiveData<MutableList<Double>>
+     //   get() = _menuOrderPrice
 
 
     /**Variable to hold the order total*/
-    private var _menuOrderTotal = MutableLiveData<MutableList<Double>>()
+    private var _menuOrderTotal = MutableLiveData<Double>()
 
-    val menuOrderTotal: LiveData<MutableList<Double>>
+    val menuOrderTotal: LiveData<Double>
         get() = _menuOrderTotal
 
     /**
      * initializing the menu item lists
      */
     private lateinit var OrderItems: MutableList<String>
+
+    /**
+     * initializing the menu order prices
+     */
+    private lateinit var OrderPrices: MutableList<Double>
 
     /**
      * initializing the menu item lists
@@ -51,6 +56,10 @@ class MenuViewModel : ViewModel() {
      * initializing the menu price lists
      */
     private lateinit var menuListPrice: MutableList<Double>
+
+
+
+
 
 
     /**
@@ -73,7 +82,7 @@ class MenuViewModel : ViewModel() {
             4.20,
             6.70,
             7.50,
-            3.50
+            3.00
         )
     }
 
@@ -90,21 +99,20 @@ class MenuViewModel : ViewModel() {
 
      fun addToOrder(num: Int){
         _menuOrderItems.value?.add(menuItemList[num])
-        _menuOrderPrice.value?.add(menuListPrice[num])
+        //_menuOrderPrice.value?.add(menuListPrice[num])
 
          orderTotal()
     }
 
     fun removeOrderItem(num: Int){
         _menuOrderItems.value?.removeAt(num)
-        _menuOrderPrice.value?.removeAt(num)
+        //_menuOrderPrice.value?.removeAt(num)
 
         orderTotal()
     }
 
     fun orderTotal(){
-        /** */
-        var prices = mutableListOf(_menuOrderPrice)
+       // var prices = mutableListOf(_menuOrderPrice)
 
         /**Loops through the prices and adds each to menuOrderTotal*/
         /*for (i in prices){
